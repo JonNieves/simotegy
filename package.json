@@ -1,0 +1,17 @@
+{
+	"name": "simotegy",
+	"version": "1.0.0",
+	"private": true,
+	"main": "app.js",
+	"scripts": {
+		"start": "node app.js"
+	},
+	"dependencies": {
+		"express": "^4.17.1",
+		"npm": "^6.14.13",
+		"socket.io": "^4.1.2"
+	},
+	"engines": {
+		"node": "latest"
+	}
+}

@@ -1,0 +1,206 @@
+/*
+	Z-INDEXES
+		TOP
+			simotegy alerts
+			game controls
+			Start
+			audio/full screen/game control revealer
+			canvas
+		BOTTOM
+*/
+
+* {
+    background-color: white;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    border: 0;
+    overflow: hidden;
+    display: block;
+    font-family: sans-serif;
+}
+
+#myCanvas {
+    filter: blur(2px);
+    z-index: 1;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#muteControl,
+#fullscreenControl,
+#player_controls_revealer {
+    z-index: 2;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+}
+
+#muteControl {
+    top: 5px;
+    right: 5px;
+}
+
+#fullscreenControl {
+    bottom: 5px;
+    right: 5px;
+}
+
+#player_controls_revealer {
+    font-size: xx-large;
+    top: 5px;
+    left: 5px;
+}
+
+#player_controls_tip {
+    z-index: 4;
+    padding: 8px;
+    display: none;
+    position: absolute;
+    top: 45px;
+    left: 5px;
+    max-width: calc(100% - 10px);
+    max-height: calc(100% - 50px);
+    border: 4px solid lightgray;
+    border-radius: 4px;
+    overflow: auto;
+}
+
+#player_controls_tip button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+#start {
+    z-index: 3;
+    width: calc(100% - 16px);
+}
+
+#start,
+#alert {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    height: auto;
+    max-height: 99%;
+    max-width: 600px;
+    display: block;
+    border-radius: 4px;
+    border: 4px solid lightgray;
+    overflow: hidden;
+}
+
+
+/* Have alerts on top */
+
+#alert {
+    z-index: 5;
+    display: none;
+    top: 10px;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0%);
+    -ms-transform: translate(-50%, 0%);
+    -moz-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+    width: fit-content;
+}
+
+#start *,
+#alert * {
+    display: block;
+    width: calc(100% - 16px);
+    height: auto;
+    margin: 8px;
+}
+
+
+/*#alert button {*/
+
+button {
+    border: 2px solid lightgray;
+    background-color: #2196F3;
+    color: white;
+    padding: 8px;
+}
+
+#alert p {
+    margin: 16px 8px 16px 8px;
+}
+
+#start input {
+    border: 1px solid lightgray;
+    font-size: x-large;
+}
+
+#start a {
+    font-size: 20px;
+    text-decoration: none;
+    width: fit-content;
+}
+
+#start a:hover {
+    text-decoration: underline;
+}
+
+#start #loading {
+    display: block;
+}
+
+#start #doneLoading {
+    display: none;
+}
+
+#postGame {
+    display: none;
+}
+
+#postGame .postGame {
+    margin: 16px 8px 16px 8px;
+}
+
+#postGame_winning_team_proclamation {
+    text-align: center;
+}
+
+.loader {
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid blue;
+    border-right: 8px solid yellow;
+    border-bottom: 8px solid red;
+    border-left: 8px solid green;
+    width: 24px!important;
+    height: 24px!important;
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

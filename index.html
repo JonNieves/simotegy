@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <!--
+		INDEX.HTML
+		AUTHOR: JONATHAN M NIEVES
+		UPDATED: 11/2/2018
+		Looking for a job!
+	-->
+
+    <title>Simotegy</title>
+
+    <link href="./favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="./styles/simotegy.css">
+    <link rel="stylesheet" href="./styles/howTo.css">
+
+    <!--to keep, say a samsung galaxy s7 from seeing this page with frickin ~1500x900 pixels resolution and frustrating people with tiny visual elements-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <!--Just a little something for my visual basic browser -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="author" content="Jonathan M. Nieves">
+    <meta property="og:title" content="Simotegy">
+    <meta property="og:description" content="A 2D multiplayer game where 2 teams compete to occupy a central area whilst surviving an increasingly hazardous field.">
+    <meta property="og:image" content="https://simotegy.herokuapp.com/images/meta.png">
+    <meta property="og:url" content="https://simotegy.herokuapp.com/index.html">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+
+<body onresize="canvas_resize()">
+
+    <!--GAME CANVAS-->
+    <canvas id="myCanvas"></canvas>
+
+    <!--Start-->
+    <div id="start">
+        <img src="./images/simotegy_logo.gif">
+
+        <div id="loading">
+            <div class="loader"></div>
+        </div>
+        <div id="doneLoading">
+            <br>
+            <input id="nameInput" type="text" maxlength="24" placeholder="Enter a name to play">
+            <br>
+            <a href="./howTo.html">How to play Simotegy</a>
+            <a href="./howTo.html#fullscreenbug">Fullscreen "inverted colors bug" on Chrome - FIX</a>
+        </div>
+        <div id="postGame">
+            <h1 class="postGame" id="postGame_winning_team_proclamation"></h1>
+            <ul class="postGame" id="postGame_winning_team_player_list"></ul>
+            <!--button function defined in player_input_detection.js-->
+            <button id="play_again_button">Play Again</button>
+        </div>
+    </div>
+
+    <!--Alerts-->
+    <div id="alert">
+        <p></p>
+        <button onclick="this.parentElement.style.display = 'none';">Close Message</button>
+    </div>
+
+    <!--Sound Control-->
+    <img id="muteControl" onclick="muteControl();" src="./images/UI/mute.png">
+    <!-- control of fullscreen -->
+    <img id="fullscreenControl" onclick="open_fullscreen();" src="./images/UI/full.png">
+    <!-- player controls reveal -->
+    <i id="player_controls_revealer" class="fas fa-gamepad" onclick="document.getElementById('player_controls_tip').style.display = 'block';"></i>
+    <div id="player_controls_tip">
+        <button onclick="this.parentElement.style.display = 'none';">Close</button>
+        <h3 class="w3-border-bottom">Player Controls</h3>
+        <div class="content_sub_subcontainer">
+            <h5><i class="far fa-keyboard"></i> Keyboard and Mouse</h5>
+            <div class="content_sub_subcontainer">
+                <p>Press <span>W</span> to go Up, <span>A</span> to go Left, <span>S</span> to go Down, <span>D</span> to go Right</p>
+                <p>Double-press any of them for a Speed Boost <i class="fas fa-tachometer-alt"></i></p>
+                <p>Pressing <span><i class="fas fa-arrow-up"></i></span> or <span><i class="fas fa-arrow-right"></i></span> or <span><i class="fas fa-arrow-down"></i></span> or <span><i class="fas fa-arrow-left"></i></span> launches a spike <img src="./images/ingame/spike.png"
+                        class="spike_img"> in the pointed direction
+                </p>
+                <p>Clicking the mouse (relative to the player model) also launches a spike <img src="./images/ingame/spike.png" class="spike_img"> in that direction</p>
+            </div>
+            <h5><i class="far fa-hand-point-up"></i> Touchscreen (partially supported :()</h5>
+            <div class="content_sub_subcontainer">
+                <p>Swipe anywhere in the direction you want to go</p>
+                <p>Tapping the screen (relative to the player model) launches a spike <img src="./images/ingame/spike.png" class="spike_img"> in that direction</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!--LIBRARIES-->
+    <script src="/socket.io/socket.io.js"></script>
+    <!--MY SCRIPTS-->
+    <script src="./scripts/game_loading_tracker.js"></script>
+    <script src="./scripts/load_sounds_and_images.js"></script>
+    <script src="./scripts/audio_control.js"></script>
+    <script src="./scripts/alerts.js"></script>
+    <script src="./scripts/game_setup.js"></script>
+    <script src="./scripts/canvas_setup.js"></script>
+    <script src="./scripts/socket.js"></script>
+    <script src="./scripts/fullscreen_control.js"></script>
+    <script src="./scripts/player_input_detection.js"></script>
+</body>
+
+</html>

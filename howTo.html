@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+    <title>Simotegy (Beta)</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Jonathan M. Nieves">
+
+    <meta property="og:title" content="Simotegy">
+    <meta property="og:description" content="A 2D multiplayer game where 2 teams compete to occupy a central whilst surviving an increasingly hazardous field.">
+    <meta property="og:image" content="https://simotegy.herokuapp.com/images/meta.png">
+    <meta property="og:url" content="https://simotegy.herokuapp.com/index.html">
+
+    <link rel="stylesheet" href="./styles/w3.css">
+    <link rel="stylesheet" href="./styles/howTo.css">
+
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div id="aboutSimotegy">
+
+        <div class="w3-center">
+            <div class="content_container">
+                <div class="content_subcontainer">
+                    <a href="./index.html">
+                        <h3>
+                            < Go Back</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="banner_container">
+                <h1 class="w3-border-bottom">How to Play</h1>
+                <img src="./images/simotegy_logo.gif" class="simotegyGIF">
+            </div>
+            <div class="content_container">
+                <div class="content_subcontainer">
+                    <h3 class="w3-border-bottom">Contents</h3>
+                    <div class="content_sub_subcontainer">
+                        <ol>
+                            <li><a href="./howTo.html#Objective">Objective</a></li>
+                            <li><a href="./howTo.html#Player_Roles">Player Roles</a></li>
+                            <li><a href="./howTo.html#Player_Controls">Player Controls</a></li>
+                            <li><a href="./howTo.html#Player_Abilities">Player Abilities</a></li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="content_subcontainer" id="Objective">
+                    <h3 class="w3-border-bottom">Map and Objective</h3>
+                    <div class="content_sub_subcontainer">
+                        <h5><i class="far fa-map"></i> Map</h5>
+                        <div class="content_sub_subcontainer">
+                            <p>There are 3 areas of note on the map:</p>
+                            <ol style="width:fit-content;">
+                                <li class="w3-border-bottom w3-border-blue">Blue Team Base</li>
+                                <li class="w3-border-bottom w3-border-red">Red Team Base</li>
+                                <li class="w3-border-bottom w3-border-yellow">Goal Area (center)</li>
+                            </ol>
+                            <p>Players in their own bases are safe from collisions with spikes <img src="./images/ingame/spike.png" class="spike_img"></p>
+                            <div class="relative">
+                                <div class="absolute" id="blue_area">Blue starts here</div>
+                                <div class="absolute" id="yellow_area">Get in and stay in here</div>
+                                <div class="absolute" id="red_area">Red starts here</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content_sub_subcontainer">
+                        <h5><i class="fas fa-flag-checkered"></i> Objective</h5>
+                        <div class="content_sub_subcontainer">
+                            <p>The objective for both teams is to have more players occupying the central area than the opposing team for a time. The challenge is to do it while avoiding increasing numbers of spikes. <img src="./images/ingame/spike.png"
+                                    class="spike_img"></p>
+                            <div class="w3-center">
+                                <video controls>
+										<source src="./videos/objective_demo.mp4" type="video/mp4">
+									</video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content_subcontainer" id="Player_Roles">
+                    <h3 class="w3-border-bottom">Player Roles</h3>
+                    <div class="content_sub_subcontainer">
+                        <p style="display:inline-block;">There are 2 player roles:</p>
+                        <p style="display:inline-block;">1) Leaders</p>
+                        <div class="player_model" style="height:50px; width: 50px;"></div>
+                        <p style="display:inline-block;">2) Members</p>
+                        <div class="player_model" style="height:25px; width:25px;"></div>
+                        <p>Leaders are larger than Members and act as mobile respawn points for some Members.</p>
+                        <!--
+                        <h4 class="w3-border-bottom">Teams</h3>
+                        <div class="content_sub_subcontainer">
+                            <p>Each team consists of up to 6 players, with 2 Leaders and 4 Members.</p>
+                            <img src="./images/ingame/blueArmed.png" class="player_model" style="height:84px; width: 84px;">
+                            <img src="./images/ingame/blueArmed.png" class="player_model" style="height:42px; width: 42px;">
+                            <img src="./images/ingame/blueArmed.png" class="player_model" style="height:42px; width: 42px;">
+                            <img src="./images/ingame/blueArmed.png" class="player_model" style="height:84px; width: 84px;">
+                            <img src="./images/ingame/blueArmed.png" class="player_model" style="height:42px; width: 42px;">
+                            <img src="./images/ingame/blueArmed.png" class="player_model" style="height:42px; width: 42px;">
+                            <p>vs.</p>
+                            <img src="./images/ingame/redArmed.png" class="player_model" style="height:84px; width: 84px;">
+                            <img src="./images/ingame/redArmed.png" class="player_model" style="height:42px; width: 42px;">
+                            <img src="./images/ingame/redArmed.png" class="player_model" style="height:42px; width: 42px;">
+                            <img src="./images/ingame/redArmed.png" class="player_model" style="height:84px; width: 84px;">
+                            <img src="./images/ingame/redArmed.png" class="player_model" style="height:42px; width: 42px;">
+                            <img src="./images/ingame/redArmed.png" class="player_model" style="height:42px; width: 42px;">
+                        </div>
+                        -->
+                    </div>
+                </div>
+                <div class="content_subcontainer" id="Player_Controls">
+                    <h3 class="w3-border-bottom">Player Controls</h3>
+                    <div class="content_sub_subcontainer">
+                        <h5><i class="far fa-keyboard"></i> Keyboard and Mouse</h5>
+                        <div class="content_sub_subcontainer">
+                            <p>Press <span>W</span> to go Up, <span>A</span> to go Left, <span>S</span> to go Down, <span>D</span> to go Right</p>
+                            <p>Double-press any of them for a Speed Boost <i class="fas fa-tachometer-alt"></i></p>
+                            <p>Pressing <span><i class="fas fa-arrow-up"></i></span> or <span><i class="fas fa-arrow-right"></i></span> or <span><i class="fas fa-arrow-down"></i></span> or <span><i class="fas fa-arrow-left"></i></span> launches a spike
+                                <img src="./images/ingame/spike.png" class="spike_img"> in the pointed direction</p>
+                            <p>Clicking the mouse (relative to the player model) also launches a spike <img src="./images/ingame/spike.png" class="spike_img"> in that direction</p>
+                        </div>
+                        <h5><i class="far fa-hand-point-up"></i> Touchscreen (partially supported :()</h5>
+                        <div class="content_sub_subcontainer">
+                            <p>Swipe anywhere in the direction you want to go</p>
+                            <p>Tapping the screen (relative to the player model) launches a spike <img src="./images/ingame/spike.png" class="spike_img"> in that direction</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content_subcontainer" id="Player_Abilities">
+                    <h3 class="w3-border-bottom">Player Abilities</h3>
+
+                    <div class="w3-center">
+                        <video controls>
+								<source src="./videos/speed_demo.mp4" type="video/mp4">
+							</video>
+                    </div>
+
+                    <div class="content_sub_subcontainer">
+                        <h5>Speed Boosting <i class="fas fa-tachometer-alt"></i></h5>
+                        <div class="content_sub_subcontainer">
+                            <p>Players can double-press <span>W</span>/<span>A</span>/<span>S</span>/<span>D</span> to double their velocity</p>
+                            <p>The increased velocity affects spikes <img src="./images/ingame/spike.png" class="spike_img"> generated</p>
+                        </div>
+                    </div>
+                    <div class="content_sub_subcontainer">
+                        <h5>Generating Spikes <img src="./images/ingame/spike.png" class="spike_img"></h5>
+                        <div class="content_sub_subcontainer">
+
+                            <p>Spikes are hazardous entities that knock out players they come into contact with.</p>
+
+                            <!--
+                            <p>Spikes are hazardous entities that knock out players they come into contact with. Spikes' speed is determined by the speed of the player that fired them.</p>
+                            -->
+
+                            <!--
+                            <p>Spikes are hazardous entities that knock out players they come into contact with. Spikes' velocity is determined by the direction they are fired and the movement direction of the player that fired them.</p>
+                            <div class="content_sub_subcontainer">
+                                <p><span><i class="fas fa-arrow-right"></i></span> <span><i class="fas fa-arrow-right"></i></span> / <span><i class="fas fa-arrow-up"></i></span> <span><i class="fas fa-arrow-right"></i></span> Spikes fired in the SAME direction
+                                    or a PERPENDICULAR direction of player movement ("forward") have double the velocity of players</p>
+                                <p><span><i class="fas fa-arrow-left"></i></span> <span><i class="fas fa-arrow-right"></i></span> Spikes fired in the OPPOSITE direction of player movement ("backward") are stationary</p>
+                                <p>These effects are all compounded by speed-boosted players.</p>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="banner_container">
+                <h1 class="w3-border-bottom">Known Bugs</h1>
+                <img src="./images/simotegy_logo.gif" class="simotegyGIF">
+            </div>
+            <div class="content_container">
+                <div class="content_subcontainer">
+                    <h3 class="w3-border-bottom" style="width:fit-content;">Contents</h3>
+                    <ol>
+                        <li><a href="./howTo.html#fullscreenbug">Fullscreen Inverted Colors Bug on Chrome</a></li>
+                    </ol>
+                </div>
+                <div class="content_subcontainer" id="fullscreenbug">
+                    <h3 class="w3-border-bottom">Fullscreen Inverted Colors Bug on Chrome</h3>
+                    <div class="content_sub_subcontainer">
+                        <p>The fix for this issue is to disable the hardware acceleration setting in Chrome.</p>
+                        <p>Menu -> Settings -> Advanced -> [disable] Use Hardware Acceleration When Available</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
